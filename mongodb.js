@@ -62,12 +62,20 @@ MongoClient.connect(connectionURL, {useNewUrlParser: true}, (error, client) =>  
 
     const db = client.db(databaseName)
 
-    db.collection("tasks").findOne({completed: true }, (err, result) => {
-        if (err) {
-            return console.log('unable to find')
-        }
+    // db.collection("tasks").findOne({completed: true }, (err, result) => {
+    //     if (err) {
+    //         return console.log('unable to find')
+    //     }
         
+    //     console.log(result)
+    // })
+
+    db.collection('users').find({ age: 30 }).toArray((error, result) => {
         console.log(result)
+    })
+
+    db.collection('users').find({ age: 30 }).count((error, count) => {
+        console.log(count)
     })
 });
 

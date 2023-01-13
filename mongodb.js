@@ -1,3 +1,6 @@
+//documentation: https://mongodb.github.io/node-mongodb-native/3.1/api/index.html
+
+
 const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
 // const ObjectID = mongodb.Object
@@ -55,13 +58,16 @@ const databaseName = "task-manager";
 
 // });
 //read
-MongoClient.connect(connectionURL, {useNewUrlParser: true}, (error, client) =>  {
-    if (error) {
-        return console.log('unable to connect')
-    }
 
-    const db = client.db(databaseName)
+// MongoClient.connect(connectionURL, {useNewUrlParser: true}, (error, client) =>  {
+//     if (error) {
+//         return console.log('unable to connect')
+//     }
 
+//     const db = client.db(databaseName)
+
+
+//find one
     // db.collection("tasks").findOne({completed: true }, (err, result) => {
     //     if (err) {
     //         return console.log('unable to find')
@@ -70,14 +76,20 @@ MongoClient.connect(connectionURL, {useNewUrlParser: true}, (error, client) =>  
     //     console.log(result)
     // })
 
-    db.collection('users').find({ age: 30 }).toArray((error, result) => {
-        console.log(result)
-    })
+//find
 
-    db.collection('users').find({ age: 30 }).count((error, count) => {
-        console.log(count)
-    })
-});
+    // db.collection('users').find({ age: 30 }).toArray((error, result) => {
+    //     console.log(result)
+    // })
+
+//count
+
+    // db.collection('users').find({ age: 30 }).count((error, count) => {
+    //     console.log(count)
+    // })
+// });
+
+
 
 
 //update

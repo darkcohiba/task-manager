@@ -30,6 +30,22 @@ MongoClient.connect(connectionURL, {useNewUrlParser: true}, (error, client) =>  
     //       age: 27
     //     }
     // ])
+
+
+    db.collection("tasks").insertMany([
+        {
+            description: 'Create lesson plan',
+            completed: true
+        },
+        {
+            description: 'Teach walkthrough and document all follow up questions',
+            completed: true
+        },
+        {
+            description: 'Hire Elephant for training and make sure it has water',
+            completed: true
+        }
+    ])
 });
 //read
 

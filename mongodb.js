@@ -100,11 +100,11 @@ const databaseName = "task-manager";
 ////////////////////////////////////////////////////////////////
 ////////////////////////////update//////////////////////////////
 ////////////////////////////////////////////////////////////////
-MongoClient.connect(connectionURL, {useNewUrlParser: true}, (error, client) =>  {
-    if (error) {
-        return console.log('unable to connect')
-    }
-    const db = client.db(databaseName)
+// MongoClient.connect(connectionURL, {useNewUrlParser: true}, (error, client) =>  {
+//     if (error) {
+//         return console.log('unable to connect')
+//     }
+//     const db = client.db(databaseName)
 
 
 //update one by setting
@@ -135,27 +135,50 @@ MongoClient.connect(connectionURL, {useNewUrlParser: true}, (error, client) =>  
     // });   
     
     
-    //update many
-    db.collection('tasks').updateMany({
-        completed: true
-    },{
-        $set:{
-            completed: false
-        }
-    }).then((result) => {
-        console.log(result)
-    }).catch((error) => {
-        console.log(error)
-    });
-    
-    
+    //update many with setter
+    // db.collection('tasks').updateMany({
+    //     completed: true
+    // },{
+    //     $set:{
+    //         completed: false
+    //     }
+    // }).then((result) => {
+    //     console.log(result)
+    // }).catch((error) => {
+    //     console.log(error)
+    // });
 
 
-
-});
+// });
 
 ////////////////////////////////////////////////////////////////
 ////////////////////////////delete//////////////////////////////
 ////////////////////////////////////////////////////////////////
 
+// MongoClient.connect(connectionURL, {useNewUrlParser: true}, (error, client) =>  {
+//     if (error) {
+//         return console.log('unable to connect')
+//     }
+//     const db = client.db(databaseName)
+
+    //delete one
+    // db.collection('users').deleteOne({
+    //     name: 'Jen'
+    // }).then((result) => {
+    //     console.log(result)
+    // }).catch((error) => {
+    //     console.log(error)
+    // });
+
+    //delete many
+    // db.collection('tasks').deleteMany({
+    //     completed: false
+    // }).then((result) => {
+    //     console.log(result)
+    // }).catch((error) => {
+    //     console.log(error)
+    // });
+
+
+// });
 

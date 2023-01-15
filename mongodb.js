@@ -104,8 +104,21 @@ MongoClient.connect(connectionURL, {useNewUrlParser: true}, (error, client) =>  
     if (error) {
         return console.log('unable to connect')
     }
+    const db = client.db(databaseName)
 
-    
+    db.collection('users').updateOne({
+        age: 30,
+    },{
+        $set:{
+            name: "Ninfa Sanchez Waters"
+        }
+    }).then((result) => {
+        console.log(result.modifiedCount)
+    }).catch((error) => {
+        console.log(error)
+    });
+
+
 });
 
 ////////////////////////////////////////////////////////////////

@@ -106,17 +106,31 @@ MongoClient.connect(connectionURL, {useNewUrlParser: true}, (error, client) =>  
     }
     const db = client.db(databaseName)
 
-    db.collection('users').updateOne({
-        age: 30,
-    },{
-        $set:{
-            name: "Ninfa Sanchez Waters"
-        }
-    }).then((result) => {
-        console.log(result.modifiedCount)
-    }).catch((error) => {
-        console.log(error)
-    });
+
+//update one by setting
+    // db.collection('users').updateOne({
+    //     age: 30,
+    // },{
+    //     $set:{
+    //         name: "Ninfa Sanchez Waters"
+    //     }
+    // }).then((result) => {
+    //     console.log(result.modifiedCount)
+    // }).catch((error) => {
+    //     console.log(error)
+    // });
+//Update One Increment
+    // db.collection('users').updateOne({
+    //     name: "Ninfa Sanchez Waters",
+    // },{
+    //     $inc:{
+    //         age: 1
+    //     }
+    // }).then((result) => {
+    //     console.log(result)
+    // }).catch((error) => {
+    //     console.log(error)
+    // });        
 
 
 });

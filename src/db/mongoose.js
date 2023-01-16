@@ -26,6 +26,18 @@ const userSchema = new Schema({
             values: ['male', 'female'],
             message: '{VALUE} is not supported'
         }
+    },
+    occupation: {
+        type: String,
+        required: [true, 'please tell us your job']
+    },
+    years_employed: {
+        type: Number,
+        validate(value){
+            if (value < 2) {
+                throw new Error('Please join linkedIn, we are only interested in experienced job hunters.')
+            }
+        }
     }
 
 });
@@ -35,7 +47,9 @@ const User = mongoose.model('User', userSchema);
 const dad = new User({
     name: 'Andrew Waters',
     age: 11,
-    sex: 'male'
+    sex: 'male',
+    occupation: 'Dad',
+    years_employed: 3
 })
 
 

@@ -186,10 +186,10 @@ const databaseName = "task-manager-api";
 ///////////////DROP DATABASE////////////////////////////////
 ////////////////////////////////////////////////////////////
 
-// MongoClient.connect(connectionURL, {useNewUrlParser: true}, (error, client) =>  {
-//     if (error) {
-//         return console.log('unable to connect')
-//     }
-//     const db = client.db(databaseName)
-//     db.dropDatabase()
-// })
+MongoClient.connect(connectionURL, {useNewUrlParser: true}, (error, client) =>  {
+    if (error) {
+        return console.log('unable to connect')
+    }
+    const db = client.db(databaseName)
+    db.dropDatabase()
+})

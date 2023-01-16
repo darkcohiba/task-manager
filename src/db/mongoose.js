@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const validator = require('validator')
 const { Schema } = mongoose;
 
 
@@ -13,6 +14,14 @@ const userSchema = new Schema({
         type: String,
         required: [true, 'please tell us your name']
 
+    },
+    email:{
+        type: String,
+        validate(value){
+            if (!validator.isEmail(value)){
+                throw new Error('Please enter a valid email address')
+            }
+        }
     },
     age: {
         type: Number,
@@ -45,16 +54,19 @@ const userSchema = new Schema({
 const User = mongoose.model('User', userSchema);
 
 const dad = new User({
-    name: 'Andrew Waters',
+    name: 'Sam Waters',
     age: 11,
     sex: 'male',
-    occupation: 'Dad',
-    years_employed: 3
+    occupation: 'Coder',
+    years_employed: 3,
+    email: 'andrew'
 })
 
 
 dad.save().then(() => {
     console.log(dad)
-}).catch((error) => {
-    console.log(error)
 })
+
+// .catch((error) => {
+//     console.log(error)
+// })

@@ -12,11 +12,13 @@ mongoose.connect('mongodb://127.0.0.1:27017/task-manager-api',{
 const userSchema = new Schema({
     name: {
         type: String,
-        required: [true, 'please tell us your name']
+        required: [true, 'please tell us your name'],
+        trim: true,
 
     },
     email:{
         type: String,
+        lowercase: true,
         validate(value){
             if (!validator.isEmail(value)){
                 throw new Error('Please enter a valid email address')
@@ -25,8 +27,8 @@ const userSchema = new Schema({
     },
     age: {
         type: Number,
-        required: [true, `you can't be in our system without your age`],
-        min: [10, 'no babies in our db']
+        // required: [true, `you can't be in our system without your age`],
+        default: 0
     },
     sex: {
         type: String,
@@ -36,37 +38,22 @@ const userSchema = new Schema({
             message: '{VALUE} is not supported'
         }
     },
-    occupation: {
-        type: String,
-        required: [true, 'please tell us your job']
-    },
-    years_employed: {
-        type: Number,
-        validate(value){
-            if (value < 2) {
-                throw new Error('Please join linkedIn, we are only interested in experienced job hunters.')
-            }
-        }
-    }
-
 });
 
 const User = mongoose.model('User', userSchema);
 
-const dad = new User({
+const me = new User({
     name: 'Sam Waters',
-    age: 11,
     sex: 'male',
-    occupation: 'Coder',
-    years_employed: 3,
-    email: 'andrew'
+    age: 30,
+    email: 'SAMUEL.waters@gmail.com'
 })
 
 
-dad.save().then(() => {
-    console.log(dad)
+me.save().then(() => {
+    console.log(me)
+}).catch((error) => {
+    console.log(error)
 })
 
-// .catch((error) => {
-//     console.log(error)
-// })
+// console.log(User.find({}))

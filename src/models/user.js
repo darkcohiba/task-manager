@@ -6,7 +6,7 @@ const { Schema } = mongoose;
 mongoose.connect('mongodb://127.0.0.1:27017/task-manager-api',{
     useNewUrlParser: true,
     // useCreateIndex: true
-})
+})  
 
 ////////////////////////////////////////////////////////////////
 ///////////////////User Configuration///////////////////////////
@@ -16,7 +16,6 @@ const userSchema = new Schema({
         type: String,
         required: [true, 'please tell us your name'],
         trim: true,
-
     },
     email:{
         type: String,
@@ -74,3 +73,6 @@ const User = mongoose.model('User', userSchema);
 // })
 
 // console.log(User.find({}))
+
+
+module.exports = User

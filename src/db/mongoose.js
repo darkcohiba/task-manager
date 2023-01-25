@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const validator = require('validator')
+// const validator = require('validator')
 const { Schema } = mongoose;
 
 
@@ -27,13 +27,13 @@ const taskSchema = new Schema({
 
 const Task = mongoose.model('Task', taskSchema);
 
-const laundry = new Task({
-    description: 'do laundry',
-})
+// const laundry = new Task({
+//     description: 'do laundry',
+// })
 
 
-laundry.save().then(() => {
-    console.log(laundry)
-}).catch((error) => {
-    console.log(error)
-})
+// laundry.save().then(() => {
+//     console.log(laundry)
+// }).catch((error) => {
+//     console.log(error)
+// })

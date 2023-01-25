@@ -3,14 +3,6 @@ const validator = require('validator')
 const { Schema } = mongoose;
 
 
-mongoose.connect('mongodb://127.0.0.1:27017/task-manager-api',{
-    useNewUrlParser: true,
-    // useCreateIndex: true
-})  
-
-////////////////////////////////////////////////////////////////
-///////////////////User Configuration///////////////////////////
-////////////////////////////////////////////////////////////////
 const userSchema = new Schema({
     name: {
         type: String,
@@ -49,7 +41,6 @@ const userSchema = new Schema({
                 throw new Error('Password cannot contain "password"')
             }
         }
-
     }
 });
 

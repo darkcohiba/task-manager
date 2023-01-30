@@ -16,6 +16,20 @@ app.get('/users', (req, res) => {
     });
 })
 
+app.get('/users/:id', (req, res) => {
+
+    const _id = req.params.id
+    User.findById(_id).then((user) => {
+        if (!user){
+            res.status(404).send(`User not found`)
+        }
+
+        res.send(user)
+    }).catch((e) => {
+        res.status(500).send(e)
+    });
+})
+
 app.post('/users', (req, res) => {
     const user = new User(req.body)
 
